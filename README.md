@@ -6,8 +6,8 @@
 A project for CSC-207.
 
 ### Authors
-*Sara Jaljaa*
-*Samuel A. Rebelsky* (starter code)
+- *Sara Jaljaa*
+- *Samuel A. Rebelsky* (starter code)
 
 ### Overview
 PLEASE PROVIDE AN OVERVIEW OF THE PROJECT FOR THOSE WHO MIGHT NOT
