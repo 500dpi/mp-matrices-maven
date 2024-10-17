@@ -10,8 +10,8 @@ A project for CSC-207.
 - *Samuel A. Rebelsky* (starter code)
 
 ### Overview
-PLEASE PROVIDE AN OVERVIEW OF THE PROJECT FOR THOSE WHO MIGHT NOT
-OTHERWISE UNDERSTAND IT.
+A two-dimensional ADT that can be mutated like traditional
+1D arrays.
 
 ---
 
