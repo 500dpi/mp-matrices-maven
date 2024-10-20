@@ -2,9 +2,6 @@
 
 ---
 
-### Description
-A project for CSC-207.
-
 ### Authors
 - *Sara Jaljaa*
 - *Samuel A. Rebelsky* (starter code)

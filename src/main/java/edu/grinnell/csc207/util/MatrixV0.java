@@ -3,16 +3,39 @@ package edu.grinnell.csc207.util;
 /**
  * An implementation of two-dimensional matrices.
  *
- * @author Your Name Here
+ * @author Sara Jaljaa
  * @author Samuel A. Rebelsky
+ *
+ * @course CSC-207-01
  *
  * @param <T>
  *   The type of values stored in the matrix.
  */
 public class MatrixV0<T> implements Matrix<T> {
+
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
+
+  /**
+   * The height of the matrix.
+   */
+  int height;
+
+  /**
+   * The width of the matrix.
+   */
+  int width;
+
+  /**
+   * The default value of the matrix.
+   */
+  T matrixDefault;
+
+  /**
+   * The matrix array.
+   */
+  T[][] matrix;
 
   // +--------------+------------------------------------------------
   // | Constructors |
@@ -33,7 +56,16 @@ public class MatrixV0<T> implements Matrix<T> {
    *   If either the width or height are negative.
    */
   public MatrixV0(int width, int height, T def) {
-    // STUB
+    this.width = width;
+    this.height = height;
+    this.matrix = (T[][]) new Object[height][width];
+    this.matrixDefault = def;
+
+    for (int row = 0; row < height; row++) {
+      for (int col = 0; col < width; col++) {
+        this.matrix[row][col] = def;
+      } // for
+    } // for
   } // MatrixV0(int, int, T)
 
   /**
@@ -70,7 +102,7 @@ public class MatrixV0<T> implements Matrix<T> {
    *   If either the row or column is out of reasonable bounds.
    */
   public T get(int row, int col) {
-    return null;        // STUB
+    return this.matrix[row][col];
   } // get(int, int)
 
   /**
@@ -87,7 +119,7 @@ public class MatrixV0<T> implements Matrix<T> {
    *   If either the row or column is out of reasonable bounds.
    */
   public void set(int row, int col, T val) {
-    // STUB
+    this.matrix[row][col] = val;
   } // set(int, int, T)
 
   /**
@@ -96,7 +128,7 @@ public class MatrixV0<T> implements Matrix<T> {
    * @return the number of rows.
    */
   public int height() {
-    return 5;   // STUB
+    return this.height;
   } // height()
 
   /**
@@ -105,7 +137,7 @@ public class MatrixV0<T> implements Matrix<T> {
    * @return the number of columns.
    */
   public int width() {
-    return 3;   // STUB
+    return this.width;
   } // width()
 
   /**
@@ -118,7 +150,15 @@ public class MatrixV0<T> implements Matrix<T> {
    *   If the row is negative or greater than the height.
    */
   public void insertRow(int row) {
-    // STUB
+    if (!(row < 0 || row > this.height)) {
+      try {
+        for (int col = 0; col < this.width; col++) {
+          this.set(row, col, this.matrixDefault);
+        } // for
+      } catch (Exception e) {
+        throw new IndexOutOfBoundsException("Error: Index out of bounds.");
+      } // try
+    } // if
   } // insertRow(int)
 
   /**
@@ -148,7 +188,15 @@ public class MatrixV0<T> implements Matrix<T> {
    *   If the column is negative or greater than the width.
    */
   public void insertCol(int col) {
-    // STUB
+    if (!(col < 0 || col > this.width)) {
+      try {
+        for (int row = 0; row < this.height; row++) {
+          this.set(row, col, matrixDefault);
+        } // for
+      } catch (Exception e) {
+        throw new IndexOutOfBoundsException("Error: Index out of bounds.");
+      } // try
+    } // if
   } // insertCol(int)
 
   /**
@@ -191,7 +239,7 @@ public class MatrixV0<T> implements Matrix<T> {
    *   If the column is negative or greater than or equal to the width.
    */
   public void deleteCol(int col) {
-    // STUB
+    // --this.width; // STUB
   } // deleteCol(int)
 
   /**
@@ -213,7 +261,11 @@ public class MatrixV0<T> implements Matrix<T> {
    */
   public void fillRegion(int startRow, int startCol, int endRow, int endCol,
       T val) {
-    // STUB
+    for (int col = startRow; col < endRow; col++) {
+      for (int row = startCol; row < endCol; row++) {
+        this.matrix[row][col] = val;
+      } // for (row)
+    } // for (col)
   } // fillRegion(int, int, int, int, T)
 
   /**
@@ -238,8 +290,9 @@ public class MatrixV0<T> implements Matrix<T> {
    *   If the rows or columns are inappropriate.
    */
   public void fillLine(int startRow, int startCol, int deltaRow, int deltaCol,
-      int endRow, int endCol, T val) {
-    // STUB
+    int endRow, int endCol, T val) {
+    int row = startRow;
+    int col = startCol; // STUB
   } // fillLine(int, int, int, int, int, int, T)
 
   /**
@@ -249,8 +302,16 @@ public class MatrixV0<T> implements Matrix<T> {
    *
    * @return a copy of the matrix.
    */
+  @SuppressWarnings({"unchecked"})
   public Matrix clone() {
-    return this;        // STUB
+    MatrixV0 cloned = new MatrixV0<T>(this.width, this.height, this.matrixDefault);
+
+    for (int row = 0; row < this.width; row++) {
+      for (int col = 0; col < this.height; col++) {
+        cloned.set(row, col, this.get(row, col));
+      } // for (col)
+    } // for (row)
+    return cloned;
   } // clone()
 
   /**
@@ -263,7 +324,7 @@ public class MatrixV0<T> implements Matrix<T> {
    * height, and equal elements; false otherwise.
    */
   public boolean equals(Object other) {
-    return this == other;       // STUB
+    return this == other; // STUB
   } // equals(Object)
 
   /**

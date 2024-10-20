@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
  * @author Samuel A. Rebelsky
  */
 class TestMatrix {
-  /**
+    /**
    * Make sure that we can create and change 1x1 matrices.
    */
   @Test
