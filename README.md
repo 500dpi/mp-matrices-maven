@@ -13,7 +13,7 @@ A two-dimensional ADT that can be mutated like traditional
 ---
 
 ### Acknowledgements
-- ...
+- [Object Javadocs (for compare method)](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Objects.html)
 
 ---
 
