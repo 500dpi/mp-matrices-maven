@@ -1,7 +1,5 @@
 ## Mini-Project #6: Matrices (2D Arrays)
 
----
-
 ### Authors
 - *Sara Jaljaa*
 - *Samuel A. Rebelsky* (starter code)
