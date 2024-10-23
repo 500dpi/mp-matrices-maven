@@ -7,13 +7,13 @@
 - *Samuel A. Rebelsky* (starter code)
 
 ### Overview
-A two-dimensional ADT that can be mutated like traditional
-1D arrays.
+A two-dimensional ADT that behaves like a single-dimension array in addition to dynamically expanding/shrinking in both dimensions.
 
 ---
 
 ### Acknowledgements
 - [Object Javadocs (for compare method)](https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Objects.html)
+- [Checkstyle modification (ignore hidden fields in constructors)](https://stackoverflow.com/questions/7776046/checkstyle-how-to-resolve-hidden-field-error)
 
 ---
 
